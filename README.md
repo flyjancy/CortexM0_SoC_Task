@@ -1,6 +1,6 @@
-# Cortex M0 based SoC Tutorial Version
+# Cortex M0 based SoC Tutorial Task Version
 
-This version is for a companion tutorial by us.
+This version is for a step-by-step tutorial.
 
 There are some references in folder /docs/
 
