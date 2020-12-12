@@ -1,4 +1,4 @@
-# Cortex M0 based SoC Tutorial Task Version
+# Cortex M0 based SoC Building Tutorial
 
 This version is for a step-by-step tutorial.
 
