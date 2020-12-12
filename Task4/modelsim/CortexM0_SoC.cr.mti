@@ -1,0 +1,64 @@
+C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module AHBlite_Interconnect
+
+Top level modules:
+	AHBlite_Interconnect
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module AHBlite_SlaveMUX
+
+Top level modules:
+	AHBlite_SlaveMUX
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module cortexm0ds_logic
+
+Top level modules:
+	cortexm0ds_logic
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module CortexM0_SoC_vlg_tst
+
+Top level modules:
+	CortexM0_SoC_vlg_tst
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module buzzer
+
+Top level modules:
+	buzzer
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module AHBlite_WaterLight
+
+Top level modules:
+	AHBlite_WaterLight
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module WaterLight
+
+Top level modules:
+	WaterLight
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module WaveformROM
+
+Top level modules:
+	WaveformROM
+
+} {} {}} C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v {1 {vlog -work work -stats=none C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module AHBlite_WaveformGenerator
+
+Top level modules:
+	AHBlite_WaveformGenerator
+
+} {} {}}

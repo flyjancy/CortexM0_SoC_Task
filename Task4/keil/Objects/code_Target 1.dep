@@ -1,0 +1,2 @@
+Dependencies for Project 'code', Target 'Target 1': (DO NOT MODIFY !)
+F (.\startup_CMSDK_CM0.s)(0x5DAC4040)(--cpu Cortex-M0 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\range\AppData\Local\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.0\Device\CMSDK_CM0\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 527" --pd "CMSDK_CM0 SETA 1"--list .\listings\startup_cmsdk_cm0.lst --xref -o .\objects\startup_cmsdk_cm0.o --depend .\objects\startup_cmsdk_cm0.d)

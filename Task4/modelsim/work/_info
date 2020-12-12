@@ -1,0 +1,316 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/range/Desktop/CortexM0_SoC_exp/Task1/modelsim
+vAHBlite_Block_RAM
+Z0 !s110 1571572316
+!i10b 1
+!s100 K<ci`5K0Je8;7;c@znQ<b1
+IYXi]j8d<3N_kW5OFDbhXj1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim
+w1571570200
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Block_RAM.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Block_RAM.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1571572316.000000
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Block_RAM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Block_RAM.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@a@h@blite_@block_@r@a@m
+vAHBlite_Decoder
+R0
+!i10b 1
+!s100 @UzF4WQ8AQZz3V^50049m1
+IhmFoH82YMYYbK?]VPnb6X2
+R1
+R2
+w1571572308
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Decoder.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Decoder.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Decoder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Decoder.v|
+!i113 1
+R5
+R6
+n@a@h@blite_@decoder
+vAHBlite_Interconnect
+R0
+!i10b 1
+!s100 ?Ecjdl5SWKcibilX`gWIg1
+I:4?Q0K^iZH8VdaI;G44cm1
+R1
+R2
+w1556180989
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_Interconnect.v|
+!i113 1
+R5
+R6
+n@a@h@blite_@interconnect
+vAHBlite_SlaveMUX
+R0
+!i10b 1
+!s100 8?L^2mm1C8EdH`TAQ6dHB3
+I;=RTSZgk2T6@I?E1W3P9l2
+R1
+R2
+w1556175596
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_SlaveMUX.v|
+!i113 1
+R5
+R6
+n@a@h@blite_@slave@m@u@x
+vAHBlite_WaterLight
+R0
+!i10b 1
+!s100 `TFaVz[C0h8T@MJmKkHAc3
+IL0_302XDU=^5Ld=QMQLf11
+R1
+R2
+w1556184099
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaterLight.v|
+!i113 1
+R5
+R6
+n@a@h@blite_@water@light
+vAHBlite_WaveformGenerator
+R0
+!i10b 1
+!s100 9kMz;nhWToJGROYL=44VF0
+Ii@F5BHDQGk15G8K[5e>4`3
+R1
+R2
+w1571571766
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/AHBlite_WaveformGenerator.v|
+!i113 1
+R5
+R6
+n@a@h@blite_@waveform@generator
+vBlock_RAM
+R0
+!i10b 1
+!s100 <:MY?>:F>`YP9K1CT9N:^0
+I>KKL>VUZ>4aESoH;31bUb3
+R1
+R2
+w1571562680
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/Block_RAM.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/Block_RAM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/Block_RAM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/Block_RAM.v|
+!i113 1
+R5
+R6
+n@block_@r@a@m
+vbuzzer
+Z7 !s110 1571572317
+!i10b 1
+!s100 VTDA[HKFQa4:eSgL4IIf02
+I>o6`WPh>WVgOUMcF=JzT:2
+R1
+R2
+w1571555662
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/buzzer.v|
+!i113 1
+R5
+R6
+vCortexM0_SoC
+R7
+!i10b 1
+!s100 6LSjNR:oO]lUlh>daazlf1
+I5TdR0[<B2]=]^3^zlRFf52
+R1
+R2
+w1571559622
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/CortexM0_SoC.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/CortexM0_SoC.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z8 !s108 1571572317.000000
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/CortexM0_SoC.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/CortexM0_SoC.v|
+!i113 1
+R5
+R6
+n@cortex@m0_@so@c
+vCortexM0_SoC_vlg_tst
+Z9 !s110 1571572318
+!i10b 1
+!s100 cC`RLRD>H@Y<`NakZnL7G3
+I[QOGYUI9@4`l:D4ciTagC3
+R1
+R2
+w1555905504
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1571572318.000000
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/modelsim/CortexM0_SoC_vlg_tst.v|
+!i113 1
+R5
+R6
+n@cortex@m0_@so@c_vlg_tst
+vcortexm0ds_logic
+R7
+!i10b 1
+!s100 b93<P@U:oidV:RF?XC>5T1
+I[]QG3[ZW2AFmJC<IA5hOb2
+R1
+R2
+w1506940729
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v
+L0 27
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/cortexm0ds_logic.v|
+!i113 1
+R5
+R6
+vWaterLight
+R7
+!i10b 1
+!s100 IL1fNh[cYVeVLPUBLB<2;2
+I03>G7J@T[UkOmhJW>MkB30
+R1
+R2
+w1547703875
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaterLight.v|
+!i113 1
+R5
+R6
+n@water@light
+vWaveformGenerator
+R7
+!i10b 1
+!s100 ]9o>bGMi3ChV?<_Wl1[L?0
+I1O]aQ@T:bUC`LzX5cAKd80
+R1
+R2
+w1571570977
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformGenerator.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformGenerator.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformGenerator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformGenerator.v|
+!i113 1
+R5
+R6
+n@waveform@generator
+vWaveformROM
+R9
+!i10b 1
+!s100 ke=7R;MOYN>IMQd6JZ0QT3
+IklYG<gaKjLO1a`hgVnggb3
+R1
+R2
+w1571570222
+8C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v
+FC:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/range/Desktop/CortexM0_SoC_exp/Task4/rtl/WaveformROM.v|
+!i113 1
+R5
+R6
+n@waveform@r@o@m
