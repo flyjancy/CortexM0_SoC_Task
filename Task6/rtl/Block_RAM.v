@@ -3,15 +3,16 @@ module Block_RAM #(
 )   (
     input clka,
     input [ADDR_WIDTH-1:0] addra,
+    input [ADDR_WIDTH-1:0] addrb,
     input [31:0] dina,
     input [3:0] wea,
-    output reg [31:0] douta
+    output reg [31:0] doutb
 );
 
-(* ram_style="block" *)reg [31:0] mem [(2**ADDR_WIDTH-1):0];
+reg [31:0] mem [(2**ADDR_WIDTH-1):0];
 
 initial begin
-    $readmemh("C:/Users/73474/Desktop/M0/Keyboard/keil/code.hex",mem);
+    $readmemh("C:/Users/range/Desktop/CortexM0SoC/KEIL/code.hex",mem);
 end
 
 always@(posedge clka) begin
@@ -28,7 +29,7 @@ always@(posedge clka) begin
 end
 
 always@(posedge clka) begin
-    douta <= mem[addra];
+    doutb <= mem[addrb];
 end
 
 endmodule

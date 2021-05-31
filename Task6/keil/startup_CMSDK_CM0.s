@@ -73,11 +73,8 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     0                         ; Reserved
                 DCD     0                         ; Reserved
                 DCD     0            			  ; PendSV Handler
-                DCD     0          				  ; SysTick Handler
-                DCD     KEY0_Handler              ; IRQ0 Handler
-                DCD     KEY1_Handler              ; IRQ1 Handler
-                DCD     KEY2_Handler              ; IRQ2 Handler
-                DCD     KEY3_Handler              ; IRQ3 Handler
+                DCD     SysTick_Handler           ; SysTick Handler
+                DCD     UART_Handler              ; IRQ0 Handler
 
                 AREA    |.text|, CODE, READONLY
 
@@ -93,39 +90,22 @@ Reset_Handler   PROC
                 MOV     R9, R8
                 BX      R0
                 ENDP
- 
-KEY0_Handler    PROC
-                EXPORT KEY0_Handler            [WEAK]
-			    IMPORT KEY0
-				PUSH	{R0,R1,R2,LR}
-                BL		KEY0
-				POP		{R0,R1,R2,PC}
+
+SysTick_Handler PROC
+                EXPORT SysTick_Handler            [WEAK]
+                IMPORT SysTickHandler
+                PUSH    {LR}
+                BL      SysTickHandler
+                POP     {PC}		
                 ENDP
 
-KEY1_Handler    PROC
-                EXPORT KEY1_Handler            [WEAK]
-			    IMPORT KEY1
+UART_Handler    PROC
+                EXPORT UART_Handler            [WEAK]
+				IMPORT UARTHandle
 				PUSH	{R0,R1,R2,LR}
-                BL		KEY1
+                BL		UARTHandle
 				POP		{R0,R1,R2,PC}
                 ENDP
-
-KEY2_Handler    PROC
-                EXPORT KEY2_Handler            [WEAK]
-				IMPORT KEY2
-				PUSH	{R0,R1,R2,LR}
-                BL		KEY2
-				POP		{R0,R1,R2,PC}
-                ENDP
-
-KEY3_Handler    PROC
-                EXPORT KEY3_Handler            [WEAK]
-				IMPORT KEY3
-				PUSH	{R0,R1,R2,LR}
-                BL		KEY3
-				POP		{R0,R1,R2,PC}
-                ENDP
-
 
 
                 ALIGN 4

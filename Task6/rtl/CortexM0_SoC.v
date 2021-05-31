@@ -1,13 +1,15 @@
-
 module CortexM0_SoC (
-        input   wire         clk,
-        input   wire         RSTn,
-        inout   wire         SWDIO,  
-        input   wire         SWCLK,
-        input   wire  [3:0]  col,
-        output  wire  [3:0]  row,
-        output  wire  [5:0]  seg_sel,
-        output  wire  [7:0]  seg_led
+        input           wire            clk,
+        input           wire            RSTn,
+        inout           wire            SWDIO,  
+        input           wire            SWCLK,
+        // LCD
+        // insert LCD ports
+
+        output          wire            TXD,
+        input           wire            RXD
+
+
 );
 
 //------------------------------------------------------------------------------
@@ -26,9 +28,9 @@ assign SWDIO = (SWDOEN) ?  SWDO : 1'bz;
 //------------------------------------------------------------------------------
 
 wire [31:0] IRQ;
-wire [3:0] key_interrupt;
-/*Connect the IRQ with keyboard*/
-assign IRQ = {28'b0,key_interrupt};
+wire interrupt_UART;
+/*Connect the IRQ with UART*/
+assign IRQ = {31'b0,interrupt_UART};
 /***************************/
 
 wire RXEV;
@@ -120,7 +122,7 @@ cortexm0ds_logic u_logic (
         .ECOREVNUM      (28'h0),
 
         // Systick
-        .STCLKEN        (1'b0),
+        .STCLKEN        (1'b1),
         .STCALIB        (26'h0),
 
         // Debug - JTAG or Serial wire
@@ -200,6 +202,20 @@ wire            HREADYOUT_P3;
 wire    [31:0]  HRDATA_P3;
 wire            HRESP_P3;
 
+wire            HSEL_P4;
+wire    [31:0]  HADDR_P4;
+wire    [2:0]   HBURST_P4;
+wire            HMASTLOCK_P4;
+wire    [3:0]   HPROT_P4;
+wire    [2:0]   HSIZE_P4;
+wire    [1:0]   HTRANS_P4;
+wire    [31:0]  HWDATA_P4;
+wire            HWRITE_P4;
+wire            HREADY_P4;
+wire            HREADYOUT_P4;
+wire    [31:0]  HRDATA_P4;
+wire            HRESP_P4;
+
 AHBlite_Interconnect Interconncet(
         .HCLK           (clk),
         .HRESETn        (cpuresetn),
@@ -275,7 +291,22 @@ AHBlite_Interconnect Interconncet(
         .HREADY_P3      (HREADY_P3),
         .HREADYOUT_P3   (HREADYOUT_P3),
         .HRDATA_P3      (HRDATA_P3),
-        .HRESP_P3       (HRESP_P3)
+        .HRESP_P3       (HRESP_P3),
+
+        // P4
+        .HSEL_P4        (HSEL_P4),
+        .HADDR_P4       (HADDR_P4),
+        .HBURST_P4      (HBURST_P4),
+        .HMASTLOCK_P4   (HMASTLOCK_P4),
+        .HPROT_P4       (HPROT_P4),
+        .HSIZE_P4       (HSIZE_P4),
+        .HTRANS_P4      (HTRANS_P4),
+        .HWDATA_P4      (HWDATA_P4),
+        .HWRITE_P4      (HWRITE_P4),
+        .HREADY_P4      (HREADY_P4),
+        .HREADYOUT_P4   (HREADYOUT_P4),
+        .HRDATA_P4      (HRDATA_P4),
+        .HRESP_P4       (HRESP_P4)
 );
 
 //------------------------------------------------------------------------------
@@ -283,7 +314,8 @@ AHBlite_Interconnect Interconncet(
 //------------------------------------------------------------------------------
 
 wire [31:0] RAMCODE_RDATA,RAMCODE_WDATA;
-wire [13:0] RAMCODE_ADDR;
+wire [13:0] RAMCODE_WADDR;
+wire [13:0] RAMCODE_RADDR;
 wire [3:0]  RAMCODE_WRITE;
 
 AHBlite_Block_RAM RAMCODE_Interface(
@@ -301,11 +333,70 @@ AHBlite_Block_RAM RAMCODE_Interface(
         .HREADY         (HREADY_P0),
         .HREADYOUT      (HREADYOUT_P0),
         .HRESP          (HRESP_P0),
-        .BRAM_ADDR      (RAMCODE_ADDR),
+        .BRAM_WRADDR    (RAMCODE_WADDR),
+        .BRAM_RDADDR    (RAMCODE_RADDR),
         .BRAM_RDATA     (RAMCODE_RDATA),
         .BRAM_WDATA     (RAMCODE_WDATA),
         .BRAM_WRITE     (RAMCODE_WRITE)
         /**********************************/
+);
+
+// //------------------------------------------------------------------------------
+// // AHB WaterLight
+// //------------------------------------------------------------------------------
+
+// wire [7:0] WaterLight_mode;
+// wire [31:0] WaterLight_speed;
+
+// AHBlite_WaterLight WaterLight_Interface(
+//         /* Connect to Interconnect Port 2 */
+//         .HCLK                   (clk),
+//         .HRESETn                (cpuresetn),
+//         .HSEL                   (HSEL_P2),
+//         .HADDR                  (HADDR_P2),
+//         .HPROT                  (HPROT_P2),
+//         .HSIZE                  (HSIZE_P2),
+//         .HTRANS                 (HTRANS_P2),
+//         .HWDATA                 (HWDATA_P2),
+//         .HWRITE                 (HWRITE_P2),
+//         .HRDATA                 (HRDATA_P2),
+//         .HREADY                 (HREADY_P2),
+//         .HREADYOUT              (HREADYOUT_P2),
+//         .HRESP                  (HRESP_P2),
+//         .WaterLight_mode        (WaterLight_mode),
+//         .WaterLight_speed       (WaterLight_speed)
+//         /**********************************/ 
+// );
+
+
+//------------------------------------------------------------------------------
+// AHB LCD
+//------------------------------------------------------------------------------
+
+
+AHBlite_LCD LCD_Interface(
+        /* Connect to Interconnect Port 4 */
+        .HCLK                   (clk),
+        .HRESETn                (cpuresetn),
+        .HSEL                   (/*Port 4*/),
+        .HADDR                  (/*Port 4*/),
+        .HPROT                  (/*Port 4*/),
+        .HSIZE                  (/*Port 4*/),
+        .HTRANS                 (/*Port 4*/),
+        .HWDATA                 (/*Port 4*/),
+        .HWRITE                 (/*Port 4*/),
+        .HRDATA                 (/*Port 4*/),
+        .HREADY                 (/*Port 4*/),
+        .HREADYOUT              (/*Port 4*/),
+        .HRESP                  (/*Port 4*/),
+        .LCD_CS                 (LCD_CS),
+        .LCD_RS                 (LCD_RS),
+        .LCD_WR                 (LCD_WR),
+        .LCD_RD                 (LCD_RD),
+        .LCD_RST                (LCD_RST),
+        .LCD_DATA               (LCD_DATA),
+        .LCD_BL_CTR             (LCD_BL_CTR)
+        /**********************************/ 
 );
 
 //------------------------------------------------------------------------------
@@ -314,7 +405,8 @@ AHBlite_Block_RAM RAMCODE_Interface(
 
 wire [31:0] RAMDATA_RDATA;
 wire [31:0] RAMDATA_WDATA;
-wire [13:0] RAMDATA_ADDR;
+wire [13:0] RAMDATA_WADDR;
+wire [13:0] RAMDATA_RADDR;
 wire [3:0]  RAMDATA_WRITE;
 
 AHBlite_Block_RAM RAMDATA_Interface(
@@ -332,7 +424,8 @@ AHBlite_Block_RAM RAMDATA_Interface(
         .HREADY         (HREADY_P1),
         .HREADYOUT      (HREADYOUT_P1),
         .HRESP          (HRESP_P1),
-        .BRAM_ADDR      (RAMDATA_ADDR),
+        .BRAM_WRADDR    (RAMDATA_WADDR),
+        .BRAM_RDADDR    (RAMDATA_RADDR),
         .BRAM_WDATA     (RAMDATA_WDATA),
         .BRAM_RDATA     (RAMDATA_RDATA),
         .BRAM_WRITE     (RAMDATA_WRITE)
@@ -340,53 +433,32 @@ AHBlite_Block_RAM RAMDATA_Interface(
 );
 
 //------------------------------------------------------------------------------
-// AHB Keyboard
+// AHB UART
 //------------------------------------------------------------------------------
 
-wire [15:0] key_data;
-wire        key_clear;
+wire state;
+wire [7:0] UART_RX_data;
+wire [7:0] UART_TX_data;
+wire tx_en;
 
-AHBlite_Keyboard Keyboard_Interface(
-        /* Connect to Interconnect Port 2 */
-        .HCLK                   (clk),
-        .HRESETn                (cpuresetn),
-        .HSEL                   (HSEL_P2),
-        .HADDR                  (HADDR_P2),
-        .HTRANS                 (HTRANS_P2),
-        .HSIZE                  (HSIZE_P2),
-        .HPROT                  (HPROT_P2),
-        .HWRITE                 (HWRITE_P2),
-        .HWDATA                 (HWDATA_P2),
-        .HREADY                 (HREADY_P2),
-        .HREADYOUT              (HREADYOUT_P2),
-        .HRDATA                 (HRDATA_P2),
-        .HRESP                  (HRESP_P2),
-        .key_data               (key_data),
-        .key_clear              (key_clear)
-        /**********************************/ 
-);
-
-//------------------------------------------------------------------------------
-// AHB Segdisp
-//------------------------------------------------------------------------------
-
-wire [4:0] disp_data;
-
-AHBlite_Segdisp Segdisp_Interface(
+AHBlite_UART UART_Interface(
         .HCLK           (clk),
         .HRESETn        (cpuresetn),
         .HSEL           (HSEL_P3),
         .HADDR          (HADDR_P3),
-        .HTRANS         (HTRANS_P3),
-        .HSIZE          (HSIZE_P3),
         .HPROT          (HPROT_P3),
-        .HWRITE         (HWRITE_P3),
+        .HSIZE          (HSIZE_P3),
+        .HTRANS         (HTRANS_P3),
         .HWDATA         (HWDATA_P3),
+        .HWRITE         (HWRITE_P3),
+        .HRDATA         (HRDATA_P3),
         .HREADY         (HREADY_P3),
         .HREADYOUT      (HREADYOUT_P3),
-        .HRDATA         (HRDATA_P3),
         .HRESP          (HRESP_P3),
-        .disp_data      (disp_data)
+        .UART_RX        (UART_RX_data),
+        .state          (state),
+        .tx_en          (tx_en),
+        .UART_TX        (UART_TX_data)
 );
 
 //------------------------------------------------------------------------------
@@ -395,43 +467,71 @@ AHBlite_Segdisp Segdisp_Interface(
 
 Block_RAM RAM_CODE(
         .clka           (clk),
-        .addra          (RAMCODE_ADDR),
+        .addra          (RAMCODE_WADDR),
+        .addrb          (RAMCODE_RADDR),
         .dina           (RAMCODE_WDATA),
-        .douta          (RAMCODE_RDATA),
+        .doutb          (RAMCODE_RDATA),
         .wea            (RAMCODE_WRITE)
 );
 
 Block_RAM RAM_DATA(
         .clka           (clk),
-        .addra          (RAMDATA_ADDR),
+        .addra          (RAMDATA_WADDR),
+        .addrb          (RAMDATA_RADDR),
         .dina           (RAMDATA_WDATA),
-        .douta          (RAMDATA_RDATA),
+        .doutb          (RAMDATA_RDATA),
         .wea            (RAMDATA_WRITE)
 );
 
+// //------------------------------------------------------------------------------
+// // WaterLight
+// //------------------------------------------------------------------------------
+
+// WaterLight WaterLight(
+//         .WaterLight_mode(WaterLight_mode),
+//         .WaterLight_speed(WaterLight_speed),
+//         .clk(clk),
+//         .RSTn(cpuresetn),
+//         .LED(LED),
+//         .LEDclk(LEDclk)
+// );
+
 //------------------------------------------------------------------------------
-// Keyboard
+// UART
 //------------------------------------------------------------------------------
-Keyboard Keyboard(
-         .clk(clk)
-        ,.rstn(cpuresetn)
-        ,.key_clear(key_clear)
-        ,.col(col)
-        ,.row(row)
-        ,.key_interrupt(key_interrupt)
-        ,.key_data(key_data)
+
+wire clk_uart;
+wire bps_en;
+wire bps_en_rx,bps_en_tx;
+
+assign bps_en = bps_en_rx | bps_en_tx;
+
+clkuart_pwm clkuart_pwm(
+        .clk(clk),
+        .RSTn(cpuresetn),
+        .clk_uart(clk_uart),
+        .bps_en(bps_en)
 );
 
-//------------------------------------------------------------------------------
-// Segdisp
-//------------------------------------------------------------------------------
+UART_RX UART_RX(
+        .clk(clk),
+        .clk_uart(clk_uart),
+        .RSTn(cpuresetn),
+        .RXD(RXD),
+        .data(UART_RX_data),
+        .interrupt(interrupt_UART),
+        .bps_en(bps_en_rx)
+);
 
-Segdisp Segdisp(
-        .clk(clk)
-        ,.rstn(cpuresetn)
-        ,.data_in(disp_data)
-        ,.seg_sel(seg_sel)
-        ,.seg_led(seg_led)
+UART_TX UART_TX(
+        .clk(clk),
+        .clk_uart(clk_uart),
+        .RSTn(cpuresetn),
+        .data(UART_TX_data),
+        .tx_en(tx_en),
+        .TXD(TXD),
+        .state(state),
+        .bps_en(bps_en_tx)
 );
 
 
