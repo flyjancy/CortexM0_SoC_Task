@@ -18,7 +18,7 @@ int main()
 		    for (i = 0; i < 16; i++) {
 			    if ((din >> i) & 1) {
 			    	ans = i;
-				    Segdisp_data = 16 + ans;
+				    Segdisp_data = 16 + ans; //enable
 				    break;
 			}
 		}
