@@ -10,4 +10,9 @@ For latest version of Cortex-M0 SoC please go to https://github.com/liufengrui/C
 
 All developed by Tianjin Zhao(tianjin95@hotmail.com) and Fengrui Liu(fengrui98@hotmail.com)
 
-PS: Now the tutorial doc is not available.
+Update: 
+
+(2022.3.29) Now the tutorial doc is available at [Introduction · WQ GitBook](https://uestcwq.gitee.io/wq-gitbook/).
+
+(2022.3.29) We update our source code in ./Task1~./Task4, the old version is also available in ./old_version. We hope that the new source code would be easier to understand with our tutorial.
+

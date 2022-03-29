@@ -3,9 +3,7 @@ module CortexM0_SoC (
         input  wire  clk,
         input  wire  RSTn,
         inout  wire  SWDIO,  
-        input  wire  SWCLK,
-        output wire [7:0] LED,
-        output wire       LEDclk
+        input  wire  SWCLK
 );
 
 //------------------------------------------------------------------------------
@@ -287,17 +285,17 @@ AHBlite_Block_RAM RAMCODE_Interface(
         /* Connect to Interconnect Port 0 */
         .HCLK           (clk),
         .HRESETn        (cpuresetn),
-        .HSEL           (HSEL_P0),
-        .HADDR          (HADDR_P0),
-        .HPROT          (HPROT_P0),
-        .HSIZE          (HSIZE_P0),
-        .HTRANS         (HTRANS_P0),
-        .HWDATA         (HWDATA_P0),
-        .HWRITE         (HWRITE_P0),
-        .HRDATA         (HRDATA_P0),
-        .HREADY         (HREADY_P0),
-        .HREADYOUT      (HREADYOUT_P0),
-        .HRESP          (HRESP_P0),
+        .HSEL           (/*Port 0*/),
+        .HADDR          (/*Port 0*/),
+        .HPROT          (/*Port 0*/),
+        .HSIZE          (/*Port 0*/),
+        .HTRANS         (/*Port 0*/),
+        .HWDATA         (/*Port 0*/),
+        .HWRITE         (/*Port 0*/),
+        .HRDATA         (/*Port 0*/),
+        .HREADY         (/*Port 0*/),
+        .HREADYOUT      (/*Port 0*/),
+        .HRESP          (/*Port 0*/),
         .BRAM_WRADDR    (RAMCODE_WADDR),
         .BRAM_RDADDR    (RAMCODE_RADDR),
         .BRAM_RDATA     (RAMCODE_RDATA),
@@ -313,25 +311,6 @@ AHBlite_Block_RAM RAMCODE_Interface(
 wire [7:0] WaterLight_mode;
 wire [31:0] WaterLight_speed;
 
-AHBlite_WaterLight WaterLight_Interface(
-        /* Connect to Interconnect Port 2 */
-        .HCLK                   (clk),
-        .HRESETn                (cpuresetn),
-        .HSEL                   (/*Port 2*/),
-        .HADDR                  (/*Port 2*/),
-        .HPROT                  (/*Port 2*/),
-        .HSIZE                  (/*Port 2*/),
-        .HTRANS                 (/*Port 2*/),
-        .HWDATA                 (/*Port 2*/),
-        .HWRITE                 (/*Port 2*/),
-        .HRDATA                 (/*Port 2*/),
-        .HREADY                 (/*Port 2*/),
-        .HREADYOUT              (/*Port 2*/),
-        .HRESP                  (/*Port 2*/),
-        .WaterLight_mode        (WaterLight_mode),
-        .WaterLight_speed       (WaterLight_speed)
-        /**********************************/ 
-);
 
 //------------------------------------------------------------------------------
 // AHB RAMDATA
@@ -343,28 +322,16 @@ wire [13:0] RAMDATA_WADDR;
 wire [13:0] RAMDATA_RADDR;
 wire [3:0]  RAMDATA_WRITE;
 
-AHBlite_Block_RAM RAMDATA_Interface(
-        /* Connect to Interconnect Port 1 */
-        .HCLK           (clk),
-        .HRESETn        (cpuresetn),
-        .HSEL           (/*Port 1*/),
-        .HADDR          (/*Port 1*/),
-        .HPROT          (/*Port 1*/),
-        .HSIZE          (/*Port 1*/),
-        .HTRANS         (/*Port 1*/),
-        .HWDATA         (/*Port 1*/),
-        .HWRITE         (/*Port 1*/),
-        .HRDATA         (/*Port 1*/),
-        .HREADY         (/*Port 1*/),
-        .HREADYOUT      (/*Port 1*/),
-        .HRESP          (/*Port 1*/),
-        .BRAM_WRADDR    (RAMDATA_WADDR),
-        .BRAM_RDADDR    (RAMDATA_RADDR),
-        .BRAM_WDATA     (RAMDATA_WDATA),
-        .BRAM_RDATA     (RAMDATA_RDATA),
-        .BRAM_WRITE     (RAMDATA_WRITE)
-        /**********************************/
-);
+
+//------------------------------------------------------------------------------
+// AHB UART
+//------------------------------------------------------------------------------
+
+wire state;
+wire [7:0] UART_RX_data;
+wire [7:0] UART_TX_data;
+wire tx_en;
+
 
 //------------------------------------------------------------------------------
 // RAM
@@ -379,26 +346,21 @@ Block_RAM RAM_CODE(
         .wea            (RAMCODE_WRITE)
 );
 
-Block_RAM RAM_DATA(
-        .clka           (clk),
-        .addra          (RAMDATA_WADDR),
-        .addrb          (RAMDATA_RADDR),
-        .dina           (RAMDATA_WDATA),
-        .doutb          (RAMDATA_RDATA),
-        .wea            (RAMDATA_WRITE)
-);
 
 //------------------------------------------------------------------------------
 // WaterLight
 //------------------------------------------------------------------------------
 
-WaterLight WaterLight(
-        .WaterLight_mode(WaterLight_mode),
-        .WaterLight_speed(WaterLight_speed),
-        .clk(clk),
-        .RSTn(cpuresetn),
-        .LED(LED),
-        .LEDclk(LEDclk)
-);
+
+//------------------------------------------------------------------------------
+// UART
+//------------------------------------------------------------------------------
+
+wire clk_uart;
+wire bps_en;
+wire bps_en_rx,bps_en_tx;
+
+assign bps_en = bps_en_rx | bps_en_tx;
+
 
 endmodule

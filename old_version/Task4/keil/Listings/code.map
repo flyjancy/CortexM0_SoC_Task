@@ -1,0 +1,89 @@
+Component: ARM Compiler 5.06 update 6 (build 750) Tool: armlink [4d35ed]
+
+==============================================================================
+
+Section Cross References
+
+    startup_cmsdk_cm0.o(RESET) refers to startup_cmsdk_cm0.o(.text) for Reset_Handler
+
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section       68  startup_cmsdk_cm0.o(RESET)
+    startup_CMSDK_CM0.s                      0x00000000   Number         0  startup_cmsdk_cm0.o ABSOLUTE
+    .text                                    0x00000044   Section       44  startup_cmsdk_cm0.o(.text)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Data           4  startup_cmsdk_cm0.o(RESET)
+    Reset_Handler                            0x00000045   Thumb Code    34  startup_cmsdk_cm0.o(.text)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000045
+
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00000070, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000070, Max: 0x00008000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x00000000   0x00000044   Data   RO            1    RESET               startup_cmsdk_cm0.o
+    0x00000044   0x00000044   0x0000002c   Code   RO            2  * .text               startup_cmsdk_cm0.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00000070, Size: 0x00000000, Max: 0x00008000, ABSOLUTE)
+
+    **** No section assigned to this execution region ****
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+        44         10         68          0          0        376   startup_cmsdk_cm0.o
+
+    ----------------------------------------------------------------------
+        44         10         68          0          0        376   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+        44         10         68          0          0        376   Grand Totals
+        44         10         68          0          0        376   ELF Image Totals
+        44         10         68          0          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                  112 (   0.11kB)
+    Total RW  Size (RW Data + ZI Data)                 0 (   0.00kB)
+    Total ROM Size (Code + RO Data + RW Data)        112 (   0.11kB)
+
+==============================================================================
+

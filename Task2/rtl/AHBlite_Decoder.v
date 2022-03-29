@@ -1,7 +1,7 @@
 module AHBlite_Decoder
 #(
     /*RAMCODE enable parameter*/
-    parameter Port0_en = 1,
+    parameter Port0_en = 0,
     /************************/
 
     /*WaterLight enable parameter*/
@@ -13,7 +13,7 @@ module AHBlite_Decoder
     /************************/
 
     /*UART enable parameter*/
-    parameter Port3_en=0
+    parameter Port3_en = 0
     /************************/
 )(
     input [31:0] HADDR,
@@ -35,7 +35,7 @@ module AHBlite_Decoder
 
 //0x00000000-0x0000ffff
 /*Insert RAMCODE decoder code there*/
-assign P0_HSEL = (HADDR[31:16] == 16'h0000) ? Port0_en : 1'b0; 
+assign P0_HSEL = 1'b0;
 /***********************************/
 
 
@@ -45,7 +45,7 @@ assign P0_HSEL = (HADDR[31:16] == 16'h0000) ? Port0_en : 1'b0;
 //0X40000000 WaterLight MODE
 //0x40000004 WaterLight SPEED
 /*Insert WaterLight decoder code there*/
-assign P2_HSEL = 1'b0; 
+assign P2_HSEL = 1'b0;
 /***********************************/
 
 //0X40000010 UART RX DATA
@@ -58,7 +58,7 @@ assign P3_HSEL = 1'b0;
 //RAMDATA-----------------------------
 //0X20000000-0X2000FFFF
 /*Insert RAMDATA decoder code there*/
-assign P1_HSEL = 1'b0; 
+assign P1_HSEL = 1'b0;
 /***********************************/
 
 endmodule

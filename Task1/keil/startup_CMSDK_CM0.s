@@ -4,7 +4,7 @@
                 AREA    RESET, DATA, READONLY
                 EXPORT  __Vectors
 
-__Vectors        DCD     0x20000000                ; Top of Stack
+__Vectors       DCD     0x20000000                ; Top of Stack
                 DCD     Reset_Handler             ; Reset Handler
                 DCD     0			              ; NMI Handler
                 DCD     0				          ; Hard Fault Handler
@@ -30,9 +30,13 @@ __Vectors        DCD     0x20000000                ; Top of Stack
 Reset_Handler   PROC
                 GLOBAL  Reset_Handler
 				ENTRY
-;Inset a loop algorithm there;
+                B	start
+				ENDP
+
+
+;Insert a loop algorithm there;
+
 
 ;****************************;
-				ENDP
 					
-                END
+				END

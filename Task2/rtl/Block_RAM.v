@@ -12,7 +12,7 @@ module Block_RAM #(
 (* ram_style="block" *)reg [31:0] mem [(2**ADDR_WIDTH-1):0];
 
 initial begin
-    $readmemh("C:/Users/range/Desktop/CortexM0_SoC_cd/Task2/keil/code.hex",mem);
+    $readmemh("C:/Users/range/Desktop/CortexM0_SoC/Task1/keil/code.hex",mem);
 end
 
 always@(posedge clka) begin

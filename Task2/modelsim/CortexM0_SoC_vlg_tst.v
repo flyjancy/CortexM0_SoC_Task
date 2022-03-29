@@ -3,7 +3,6 @@ module CortexM0_SoC_vlg_tst();
 
 reg clk;
 reg RSTn;
-reg TXD;
                         
 CortexM0_SoC i1 (
     .clk(clk),
